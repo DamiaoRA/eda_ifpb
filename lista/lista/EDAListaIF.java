@@ -10,7 +10,7 @@ public interface EDAListaIF {
 	
 	public void inserirNoComeco(int e) throws ListaCheiaException;
 	
-	public void inserir (int e, int i) throws ListaIndiceForaLimiteException;
+	public void inserir (int e, int i) throws ListaIndiceForaLimiteException, ListaCheiaException;
 	
 	public int removerDoFinal() throws ListaVaziaException;
 	

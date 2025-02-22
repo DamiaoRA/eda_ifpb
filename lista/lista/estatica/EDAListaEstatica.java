@@ -1,5 +1,6 @@
-package lista;
+package lista.estatica;
 
+import lista.EDAListaIF;
 import lista.exception.ListaCheiaException;
 import lista.exception.ListaIndiceForaLimiteException;
 import lista.exception.ListaVaziaException;
@@ -106,13 +107,16 @@ public class EDAListaEstatica implements EDAListaIF{
 	}
 
 	@Override
-	public void inserir(int e, int i) throws ListaIndiceForaLimiteException {
-		if(i >= array.length)
+	public void inserir(int e, int i) throws ListaIndiceForaLimiteException, ListaCheiaException {
+		if(i >= array.length || i < 0 || i > quantidade)
 			throw new ListaIndiceForaLimiteException();
+		if(quantidade == array.length)
+			throw new ListaCheiaException();
 
-		for (int j = quantidade; j >= i; j--) {
+		for (int j = quantidade; j > i; j--) {
 			array[j] = array[j-1];
 		}
+
 		array[i] = e;
 		quantidade++;
 	}
